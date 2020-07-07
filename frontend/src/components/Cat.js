@@ -5,13 +5,13 @@ import logo from "./logo.svg";
 import "./App.css";
 
 const Cat = props => {
-  const { cat, fetchDog } = props;
+  const { cat, fetchCat } = props;
   const { fetched, fetching, error } = cat;
   const [mainImage, setMainImage] = useState(logo);
 
   useEffect(() => {
     if (!fetched && !fetching && error === null) {
-      fetchDog();
+      fetchCat();
     } else if (fetching) {
       setMainImage(
         <img
@@ -29,10 +29,10 @@ const Cat = props => {
         />
       );
     }
-  }, [fetched, fetching, error, fetchDog, cat]);
+  }, [fetched, fetching, error, fetchCat, cat]);
 
   const handleClick = () => {
-    fetchDog();
+    fetchCat();
   };
 
   return (
@@ -77,7 +77,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchDog: () => dispatch(getCat())
+  fetchCat: () => dispatch(getCat())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cat);
