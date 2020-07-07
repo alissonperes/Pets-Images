@@ -1,5 +1,6 @@
 {
   "name": "pet-tinder",
+  "homepage": "https://alissonperes.com/pet-tinder",
   "description": "Pet Tinder, an app to view pictures of dogs and cats.",
   "version": "0.1.0",
   "private": true,

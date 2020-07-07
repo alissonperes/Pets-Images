@@ -14,8 +14,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Header />
-      <Route exact path="/" component={Dog} />
-      <Route exact path="/cat" component={Cat} />
+      <Route exact path="/pet-tinder" component={Dog} />
+      <Route exact path="/pet-tinder/cat" component={Cat} />
     </Router>
   </Provider>,
   document.getElementById("root")

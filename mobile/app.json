@@ -1,0 +1,12 @@
+{
+  "name": "pet-tinder",
+  "displayName": "pet-tinder",
+  "expo": {
+    "name": "pet-tinder",
+    "slug": "pet-tinder",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
