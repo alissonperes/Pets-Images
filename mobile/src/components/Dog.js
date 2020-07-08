@@ -8,8 +8,6 @@ import {
   Image,
   StyleSheet,
   Text,
-  Animated,
-  PanResponder,
   View
 } from "react-native";
 
@@ -18,21 +16,6 @@ const Dog = props => {
   const { fetched, fetching, error } = dog;
   const [loaded, setLoaded] = useState(false);
   const [image, setImage] = useState();
-  const [pan, setPan] = useState(new Animated.ValueXY());
-
-  const panResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: Animated.event([
-      null,
-      {
-        dx: pan.x,
-        dy: pan.y
-      }
-    ]),
-    onPanResponderRelease: (e, gesture) => {
-      Animated.spring(pan, { toValue: { x: 0, y: 0 } }).start();
-    }
-  });
 
   useEffect(() => {
     if (!fetched && !fetching && error === null) {
@@ -53,30 +36,17 @@ const Dog = props => {
   return (
     <View style={styles.container}>
       <StatusBar style="auto"></StatusBar>
-      <Animated.View
-        {...panResponder.panHandlers}
-        style={[
-          pan.getLayout(),
-          {
-            flex: 1,
-            width: "100%",
-            flexDirection: "column",
-            justifyContent: "space-between"
-          }
-        ]}
-      >
-        <Image
-          source={image}
-          onLoad={() => setLoaded(true)}
-          style={{
-            flex: 1,
-            width: "100%",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            resizeMode: "contain"
-          }}
-        />
-      </Animated.View>
+      <Image
+        source={image}
+        onLoad={() => setLoaded(true)}
+        style={{
+          flex: 1,
+          width: "100%",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          resizeMode: "contain"
+        }}
+      />
       {loaded ? null : (
         <ActivityIndicator
           size="large"
