@@ -71,7 +71,6 @@ const Cat = props => {
 };
 
 const mapStateToProps = store => ({
-  dog: store.dog,
   cat: store.cat,
   store
 });
